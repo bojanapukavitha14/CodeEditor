@@ -1,0 +1,851 @@
+/* ==================================================
+   GLOBAL
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --background: #0f172a;
+
+    --header: #020617;
+
+    --panel: #111827;
+
+    --editor: #020617;
+
+    --border: #334155;
+
+    --text: #e2e8f0;
+
+    --muted: #94a3b8;
+
+    --blue: #3b82f6;
+
+    --green: #22c55e;
+
+    --red: #ef4444;
+
+    --yellow: #facc15;
+
+    --orange: #f97316;
+
+    --cyan: #22d3ee;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    display: flex;
+
+    flex-direction: column;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+
+
+/* ==================================================
+   LIGHT THEME
+================================================== */
+
+body.light-theme {
+
+    --background: #e2e8f0;
+
+    --header: #ffffff;
+
+    --panel: #ffffff;
+
+    --editor: #f8fafc;
+
+    --border: #cbd5e1;
+
+    --text: #0f172a;
+
+    --muted: #64748b;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header {
+
+    min-height: 70px;
+
+    padding:
+        12px 25px;
+
+    background: var(--header);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 22px;
+}
+
+
+.logo span {
+
+    color: var(--blue);
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+
+.header-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+.btn {
+
+    border: none;
+
+    padding:
+        10px 15px;
+
+    border-radius: 7px;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-1px);
+
+    opacity: 0.9;
+}
+
+
+.run-btn {
+
+    background:
+        var(--green);
+}
+
+
+.theme-btn {
+
+    background:
+        #6366f1;
+}
+
+
+.clear-btn {
+
+    background:
+        var(--red);
+}
+
+
+.download-btn {
+
+    background:
+        var(--blue);
+}
+
+
+/* ==================================================
+   MAIN
+================================================== */
+
+.main-container {
+
+    flex: 1;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* ==================================================
+   EDITOR SECTION
+================================================== */
+
+.editor-section {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    height: 400px;
+}
+
+
+.editor-box {
+
+    min-width: 0;
+
+    background:
+        var(--editor);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ==================================================
+   EDITOR HEADERS
+================================================== */
+
+.editor-header {
+
+    min-height: 45px;
+
+    padding:
+        0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid var(--border);
+
+    font-weight: bold;
+}
+
+
+.html-header {
+
+    color:
+        var(--orange);
+}
+
+
+.css-header {
+
+    color:
+        var(--cyan);
+}
+
+
+.js-header {
+
+    color:
+        var(--yellow);
+}
+
+
+.language-icon {
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+
+/* ==================================================
+   EDITOR
+================================================== */
+
+.editor-wrapper {
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+
+.line-numbers {
+
+    width: 45px;
+
+    flex-shrink: 0;
+
+    padding-top: 15px;
+
+    padding-right: 10px;
+
+    text-align: right;
+
+    color:
+        #64748b;
+
+    background:
+        rgba(15, 23, 42, 0.7);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    user-select: none;
+
+    overflow: hidden;
+}
+
+
+textarea {
+
+    flex: 1;
+
+    width: 100%;
+
+    height: 100%;
+
+    resize: none;
+
+    outline: none;
+
+    border: none;
+
+    padding: 15px;
+
+    background:
+        var(--editor);
+
+    color:
+        var(--text);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 22px;
+
+    tab-size: 4;
+
+    white-space: pre;
+
+    overflow: auto;
+}
+
+
+textarea::placeholder {
+
+    color:
+        #64748b;
+}
+
+
+/* ==================================================
+   SCROLLBAR
+================================================== */
+
+textarea::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+}
+
+
+textarea::-webkit-scrollbar-track {
+
+    background:
+        #020617;
+}
+
+
+textarea::-webkit-scrollbar-thumb {
+
+    background:
+        #334155;
+
+    border-radius:
+        5px;
+}
+
+
+textarea::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #475569;
+}
+
+
+/* ==================================================
+   PREVIEW
+================================================== */
+
+.preview-section {
+
+    height: 430px;
+
+    min-height: 300px;
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.preview-header {
+
+    min-height: 50px;
+
+    padding:
+        0 15px;
+
+    background:
+        var(--header);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.preview-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.preview-actions {
+
+    display: flex;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+
+.preview-actions button {
+
+    border: none;
+
+    padding:
+        7px 11px;
+
+    border-radius:
+        6px;
+
+    background:
+        #334155;
+
+    color: white;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.preview-actions button:hover {
+
+    background:
+        #475569;
+}
+
+
+#preview {
+
+    width: 100%;
+
+    flex: 1;
+
+    border: none;
+
+    background: white;
+}
+
+
+/* ==================================================
+   CONSOLE
+================================================== */
+
+.console-section {
+
+    height: 190px;
+
+    background:
+        #020617;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.console-header {
+
+    height: 45px;
+
+    padding:
+        0 15px;
+
+    background:
+        #111827;
+
+    border-bottom:
+        1px solid #334155;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.console-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        #e2e8f0;
+}
+
+
+.console-header button {
+
+    border: none;
+
+    background:
+        #334155;
+
+    color: white;
+
+    padding:
+        7px 12px;
+
+    border-radius:
+        5px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+
+.console-header button:hover {
+
+    background:
+        #475569;
+}
+
+
+.console-output {
+
+    flex: 1;
+
+    padding:
+        10px 15px;
+
+    overflow-y: auto;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+}
+
+
+.console-welcome {
+
+    color:
+        #64748b;
+}
+
+
+.console-line {
+
+    padding:
+        4px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.05);
+}
+
+
+.console-log {
+
+    color:
+        #e2e8f0;
+}
+
+
+.console-info {
+
+    color:
+        #38bdf8;
+}
+
+
+.console-warning {
+
+    color:
+        #facc15;
+}
+
+
+.console-error {
+
+    color:
+        #f87171;
+}
+
+
+.console-success {
+
+    color:
+        #4ade80;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer {
+
+    min-height: 45px;
+
+    padding:
+        10px 20px;
+
+    background:
+        var(--header);
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--muted);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 12px;
+
+    gap: 10px;
+}
+
+
+/* ==================================================
+   FULLSCREEN PREVIEW
+================================================== */
+
+.preview-section.fullscreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    border-radius: 0;
+
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .editor-section {
+
+        grid-template-columns: 1fr;
+
+        height: auto;
+    }
+
+
+    .editor-box {
+
+        height: 300px;
+    }
+
+
+    .preview-section {
+
+        height: 400px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .logo {
+
+        justify-content: center;
+    }
+
+
+    .header-actions {
+
+        justify-content: center;
+    }
+
+
+    .preview-header {
+
+        height: auto;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .preview-title {
+
+        justify-content: center;
+    }
+
+
+    .preview-actions {
+
+        justify-content: center;
+    }
+
+
+    .footer {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+}

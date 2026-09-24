@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Code Editor Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>&lt;/&gt;</span>
+            <strong>Code Editor</strong>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="runBtn"
+                    class="btn run-btn">
+                ▶ Run
+            </button>
+
+            <button id="themeBtn"
+                    class="btn theme-btn">
+                🌙 Theme
+            </button>
+
+            <button id="clearBtn"
+                    class="btn clear-btn">
+                🗑 Clear
+            </button>
+            <button id="saveBtn" class="btn save-btn">
+    💾 Save Project
+</button>
+
+            <button id="downloadBtn"
+                    class="btn download-btn">
+                ⬇ Download
+            </button>
+            <button id="shortcutsBtn" class="btn">
+    ⌨ Shortcuts
+</button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-container">
+
+
+        <!-- ================= EDITORS ================= -->
+
+        <section class="editor-section">
+
+
+            <!-- HTML -->
+
+            <div class="editor-box">
+
+                <div class="editor-header html-header">
+
+                    <span>HTML</span>
+
+                    <span class="language-icon">
+                        &lt;&gt;
+                    </span>
+
+                </div>
+
+                <div class="editor-wrapper">
+
+                    <div class="line-numbers"
+                         id="htmlLines">
+                        1
+                    </div>
+
+                    <textarea
+                        id="htmlCode"
+                        spellcheck="false"
+                        autocomplete="off"
+                        placeholder="Write your HTML code here..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- CSS -->
+
+            <div class="editor-box">
+
+                <div class="editor-header css-header">
+
+                    <span>CSS</span>
+
+                    <span class="language-icon">
+                        #
+                    </span>
+
+                </div>
+
+                <div class="editor-wrapper">
+
+                    <div class="line-numbers"
+                         id="cssLines">
+                        1
+                    </div>
+
+                    <textarea
+                        id="cssCode"
+                        spellcheck="false"
+                        autocomplete="off"
+                        placeholder="Write your CSS code here..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- JAVASCRIPT -->
+
+            <div class="editor-box">
+
+                <div class="editor-header js-header">
+
+                    <span>JavaScript</span>
+
+                    <span class="language-icon">
+                        JS
+                    </span>
+
+                </div>
+
+                <div class="editor-wrapper">
+
+                    <div class="line-numbers"
+                         id="jsLines">
+                        1
+                    </div>
+
+                    <textarea
+                        id="jsCode"
+                        spellcheck="false"
+                        autocomplete="off"
+                        placeholder="Write your JavaScript code here..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PREVIEW ================= -->
+
+        <section class="preview-section">
+
+            <div class="preview-header">
+
+                <div class="preview-title">
+
+                    <span>🌐</span>
+
+                    <strong>
+                        Live Preview
+                    </strong>
+
+                </div>
+
+                <div class="preview-actions">
+
+                    <button id="autoRunBtn">
+                        ⚡ Auto Run: ON
+                    </button>
+
+                    <button id="fullscreenBtn">
+                        ⛶ Fullscreen
+                    </button>
+
+                    <button id="refreshBtn">
+                        ↻ Refresh
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <iframe
+                id="preview"
+                title="Live Code Preview"
+                sandbox="allow-scripts allow-modals"
+            ></iframe>
+
+        </section>
+
+
+        <!-- ================= CONSOLE ================= -->
+
+        <section class="console-section">
+
+            <div class="console-header">
+
+                <div class="console-title">
+
+                    <span>▣</span>
+
+                    <strong>
+                        Console
+                    </strong>
+
+                </div>
+
+                <button id="clearConsoleBtn">
+                    Clear Console
+                </button>
+
+            </div>
+
+
+            <div id="consoleOutput"
+                 class="console-output">
+
+                <div class="console-welcome">
+                    Console ready...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <span>
+            Web-Based Code Editor
+        </span>
+
+        <span>
+            HTML • CSS • JavaScript
+        </span>
+
+        <span>
+            Ctrl + Enter → Run
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
